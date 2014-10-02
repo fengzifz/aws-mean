@@ -145,6 +145,19 @@ npm install angular
 
 ------
 
+### 使用 forever 启动 NodeJS
+
+forever 一个用来持续（或者说永远）运行一个给定脚本的简单的命令行工具。简单来说，就是可以可以启动、停止和重启我们的 app 应用的工具。[Forever Github 地址](https://github.com/nodejitsu/forever)
+
+```bash
+# 记得加-g，forever要求安装到全局环境下
+sudo npm install forever -g
+```
+
+详细使用方式请 Google 之。
+
+------
+
 ### 常见问题
 
 #### MongoDB - error:13 Permission deny
