@@ -96,21 +96,6 @@ chkconfig mongod on
 
 ------
 
-### MongoDB - error:13 Permission deny
-安装好 MongoDB 后，使用命令 `mongod` 启动 Mongo 时，可能会遇到 permission deny 的问题：
-
-```bash
-exception in initAndListen: 10309 Unable to create/open lock file: /data/db/mongod.lock errno:13 Permission denied Is a mongod instance already running?, terminating
-```
-
-这是因为当前的用户没有权限访问 `/data/db` 目录
-
-```bash
-# To fix it
-chown <username> /data/db
-```
-------
-
 ### 安装 NodeJs
 
 网上绝大部分教程都是使用 `apt-get` 来安装 node，但 Amazon Linux 64bit 里面是没有 apt 组件的，因此，我们使用源码直接编译安装。
@@ -151,7 +136,34 @@ node --version
 
 ------
 
-### -bash: node: command not found
+### 安装 ExpressJS 和 AngularJS
+
+```bash
+npm install express
+npm install angular
+```
+
+------
+
+### 常见问题
+
+#### MongoDB - error:13 Permission deny
+安装好 MongoDB 后，使用命令 `mongod` 启动 Mongo 时，可能会遇到 permission deny 的问题：
+
+```bash
+exception in initAndListen: 10309 Unable to create/open lock file: /data/db/mongod.lock errno:13 Permission denied Is a mongod instance already running?, terminating
+```
+
+这是因为当前的用户没有权限访问 `/data/db` 目录
+
+```bash
+# To fix it
+chown <username> /data/db
+```
+
+------
+
+#### -bash: node: command not found
 
 如果出现 `-bash: node: command not found` 错误，先检查 node 是否已经真的安装了：
 
@@ -184,7 +196,7 @@ reboot -f
 
 ------
 
-### -bash: npm: command not found
+#### -bash: npm: command not found
 
 安装好 Node 后，可以使用 npm 来安装 AngularJS 和 Express，但使用 npm 的时候，可能会出现错误：`-bash: npm: command not found`
 
@@ -199,16 +211,7 @@ sudo ln -s /usr/local/bin/node-waf /usr/bin/node-waf
 
 ------
 
-### 安装 ExpressJS 和 AngularJS
-
-```bash
-npm install express
-npm install angular
-```
-
-------
-
-### 开放 AWS EC2 Instance 的 80 端口
+#### 如何开放 AWS EC2 Instance 的 80 端口
 
 - Go to the Security Group settings in the left hand navigation
 - Find the Security Group that your instance is apart of
