@@ -17,6 +17,10 @@ EBS 用来永久保存数据，我们创建一个 EBS 后，可以随便挂在�
 - 点击 **ELASTIC BLOCK STORE > Volumes > Create Volume** 创建（**注意：Amazon 会按照你所选择的 EBS 容量进行收费，建议一开始不要选择太多，以后可以按需扩容。[EBS 收费](http://aws.amazon.com/cn/ebs/pricing/)**）
 - 右键刚刚创建的 volume，点击 **"Attach Volume"**，把它挂载到你的 Instance 上
 
+#### 用 SSH 登录到 AWS EC2 Instance
+```bash
+ssh -i aws_damon_node_singapore.pem ubuntu@<ip> #ip like 54.169.105.158
+```
 
 #### 在EBS  volume 上创建文件系统
 
