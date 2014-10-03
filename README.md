@@ -90,9 +90,37 @@ logpath=/data/db/logs
 ```
 
 #### 自动启动 MongoDB
+
+首先需要知道:
+
+- mongod 命令路径：`/usr/bin/mongod`
+- MongoDB 目录：`/data/db`
+- Mongodb logs 文件：`/data/db/logs/work.log`
+
+然后编辑 `/etc/rc.local`，在里面加入：
+
 ```bash
-chkconfig mongod on
+/usr/bin/mongod -dbpath=/data/db --fork --port 27017 --logpath=/data/db/logs/work.log --logappend --auth
 ```
+
+然后把 `/data/db/mongod.lock` 删除。
+
+```bash
+sudo rm /data/db/mongod.lock
+```
+
+启动服务：
+
+```bash
+/usr/bin/mongod -dbpath=/data/db --fork --port 27017 --logpath=/data/db/logs/work.log --logappend --auth
+```
+
+如果出现以下错误：
+```bash
+ERROR: child process failed, exited with error number 1
+```
+
+那么可以把 `/etc/mongod.conf` 设置 `nojournal=true`，然后重新启动服务
 
 ------
 
