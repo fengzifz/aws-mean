@@ -122,6 +122,10 @@ ERROR: child process failed, exited with error number 1
 
 那么可以把 `/etc/mongod.conf` 设置 `nojournal=true`，然后重新启动服务
 
+**参考资料：**
+- [Mongodb wont start ERROR: child process failed, exited with error numbe...](http://www.tuicool.com/articles/yeIzMf)
+- [Linux下设置MongoDB开机自启动](http://www.linuxidc.com/Linux/2011-07/39149.htm)
+
 ------
 
 ### 安装 NodeJs
